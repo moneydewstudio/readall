@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Readall - Focus First Reader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/opendyslexic@2.1.0/open-dyslexic.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- EPUB Support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gray: {
+                900: '#111111',
+                800: '#1a1a1a',
+                700: '#2a2a2a',
+              },
+              sepia: {
+                bg: '#f4ecd8',
+                text: '#5b4636',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Merriweather', 'serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              opendyslexic: ['OpenDyslexic', 'sans-serif'],
+              lexend: ['"Lexend Deca"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      // Configure PDF.js worker
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.pdfjsLib) {
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+      });
+    </script>
+    <style>
+      body {
+        overscroll-behavior: none;
+      }
+      /* Hide scrollbar for clean UI */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "zustand/": "https://esm.sh/zustand@^5.0.10/",
+    "zustand": "https://esm.sh/zustand@^5.0.10"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-gray-100 antialiased overflow-hidden">
+    <div id="root"></div>
+  </body>
+</html>
